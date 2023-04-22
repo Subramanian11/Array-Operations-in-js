@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #push{
+            margin-left: 8px;
+            padding: 5px;
+            
+        }
+
+        #pop{
+            padding: 5px;
+            margin-left: 5px;
+        }
+
+        #display{
+            padding: 5px;
+            margin-left: 5px;
+
+        }
+        #shift{
+            padding: 5px;
+            margin-left: 5px;
+        }
+
+        #unshift{
+            padding: 5px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+        <h1>Events List</h1><br><br>
+        Enter the Events: <input type="text" id="input">
+        <br><br>
+
+        <button id="push" onclick="pushElements()">Push</button>
+        <button id="pop" onclick="popElements()">Pop</button> 
+        <button id="display"- onclick="display()">Display</button>
+        <button id="shift" onclick="shift()">Shift</button>
+        <button id="unshift" onclick="unshift()">UnShift</button>
+        <br>
+        <div><ul id="events"></ul></div>
+    </center>
+
+    <script>
+        var array = new Array();
+
+        function popElements(){
+
+
+            
+                array.pop();
+                document.getElementById("events").innerHTML="<span style='color:green;'>Removed Successfully</span>";
+            
+        }
+
+        function pushElements(){
+
+            var elements = document.getElementById("input").value;
+
+            array.push(elements);
+
+            document.getElementById("events").innerHTML="<span style='color:green;'>Added Successfully</span>";
+        }
+
+        function display(){
+            
+            if(array.length===0){
+                document.getElementById("events").innerHTML="Event array is empty";
+            }
+            else{
+                for(var i=0; i<array.length;i++){
+                document.getElementById("events").innerHTML="<h3>The Events in the array</h3>"+array.join("<br>");
+            }
+            }
+            
+        }
+
+        function shift(){
+
+            array.shift();
+
+            document.getElementById("events").innerHTML="<span style='color:green;'>Removed First Element Successfully</span>";
+        }
+
+        function unshift(){
+
+            var elements = document.getElementById("input").value;
+
+            array.unshift(elements);
+
+            document.getElementById("events").innerHTML="<span style='color:green;'>Added Element in First Position Successfully</span>";
+
+        }
+
+    </script>
+</body>
+</html>
